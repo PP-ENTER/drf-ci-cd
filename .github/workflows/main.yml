@@ -26,11 +26,12 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.REMOTE_IP }}
-          username: ${{ secrets.REMOTE_SSH_ID }}
-          key: ${{ secrets.REMOTE_SSH_KEY }}
-          port: ${{ secrets.REMOTE_SSH_PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
           script: |
+            whoami
             set -e
             cd /home/ubuntu/app/drf-ci-cd
             git pull origin main
