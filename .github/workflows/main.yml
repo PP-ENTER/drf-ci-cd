@@ -34,7 +34,7 @@ jobs:
             whoami
             set -e
             cd /home/ubuntu/app/drf-ci-cd
-            git pull origin main
+            git pull --rebase origin main
             
             cd /home/ubuntu/app/drf-ci-cd/WebCAM-Django
             
