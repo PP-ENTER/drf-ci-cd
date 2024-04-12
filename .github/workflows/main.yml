@@ -39,7 +39,7 @@ jobs:
             echo "SECRET_KEY=\"${{ secrets.SECRET_KEY }}\"" > .env
             echo "DEBUG='${{ secrets.DEBUG }}'" > .env
 
-            source venv/bin/activate
+            source ../venv/bin/activate
             pip install -r requirements.txt
             
             pyhton3 manage.py collectstatic
