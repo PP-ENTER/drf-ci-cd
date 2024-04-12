@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
 	    set -e
-            cd /home/ubuntu/drf-ci-cd
+     	    cd /home/ubuntu/drf-ci-cd
             git pull origin main
 						
 	    cd /home/ubuntu/drf-ci-cd/WebCAM-Django
