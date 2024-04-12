@@ -30,11 +30,12 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-	    set -e
-     	    cd /home/ubuntu/drf-ci-cd
+            set -e
+            cd /home/ubuntu/drf-ci-cd
             git pull origin main
-						
-	    cd /home/ubuntu/drf-ci-cd/WebCAM-Django
+            
+            cd /home/ubuntu/drf-ci-cd/WebCAM-Django
+            
             echo "SECRET_KEY=\"${{ secrets.SECRET_KEY }}\"" > .env
             echo "DEBUG='${{ secrets.DEBUG }}'" > .env
 
