@@ -34,7 +34,7 @@ jobs:
             cd /home/ubuntu/drf-ci-cd
             git pull origin main
 						
-						cd /home/ubuntu/drf_ci-cd/drf_test
+	    cd /home/ubuntu/drf-ci-cd/WebCAM-Django
             echo "SECRET_KEY=\"${{ secrets.SECRET_KEY }}\"" > .env
             echo "DEBUG='${{ secrets.DEBUG }}'" > .env
 
