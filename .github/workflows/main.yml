@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 체크아웃 레포지토리
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: 파이썬 설정
         uses: actions/setup-python@v4
