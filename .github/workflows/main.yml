@@ -47,3 +47,4 @@ jobs:
             python3 manage.py collectstatic --noinput
             
             sudo systemctl restart site.service
+          
