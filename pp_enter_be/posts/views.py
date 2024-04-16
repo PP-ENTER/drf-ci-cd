@@ -8,8 +8,6 @@ from .serializers import (
 )
 from django.db.models import Q
 
-from .permission import IsAuthorOrReadOnly
-
 class CheckLoginView(generics.GenericAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
