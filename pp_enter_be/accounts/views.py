@@ -50,12 +50,13 @@ class LoginView(TokenObtainPairView):
         access = serializer.validated_data["access"]
         return Response(
             {
-                "username": user.username,
-                "nickname": user.nickname,
-                "refresh": str(refresh),
-                "access": str(access),
-            },
-            status=status.HTTP_200_OK,
+             'userid': user.id,
+             'username': user.username,
+             'nickname': user.nickname,
+             'refresh': str(refresh),
+             'access': str(access),
+             },
+            status=status.HTTP_200_OK
         )
 
 
@@ -111,7 +112,7 @@ class FriendRequestView(generics.GenericAPIView):
         serializer = self.get_serializer(friend_request)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
+      
 class AcceptFriendRequestView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
 
@@ -125,7 +126,6 @@ class AcceptFriendRequestView(generics.GenericAPIView):
                 {"detail": "Friend request not found."},
                 status=status.HTTP_404_NOT_FOUND,
             )
-
         from_user = friend_request.from_user
         to_user = friend_request.to_user
 
@@ -140,7 +140,7 @@ class AcceptFriendRequestView(generics.GenericAPIView):
         serializer = FriendSerializer(
             Friend.objects.get(user=from_user, friend=to_user)
         )
-
+        
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
