@@ -39,6 +39,8 @@ jobs:
             git pull --rebase origin main
             
             cd /home/ubuntu/app/drf-ci-cd/pp_enter_be
+            mkdir static
+            mkdir staticfiles
             
             echo "SECRET_KEY=\"${{ secrets.SECRET_KEY }}\"" > .env
             echo "DEBUG='${{ secrets.DEBUG }}'" > .env
