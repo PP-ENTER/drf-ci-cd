@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j^ej*b5__f_5jk$w-bahc8=txja_c_*33g(tf99pws0&6p^vu%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", 1))
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,7 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -142,10 +143,10 @@ REST_FRAMEWORK = {
     # "DEFAULT_PERMISSION_CLASSES": [
     #      "rest_framework.permissions.IsAuthenticated",
     #  ],
-    # "DEFAULT_AUTHENTICATION_CLASSES": (
-    #     "rest_framework_simplejwt.authentication.JWTAuthentication",
-    # ),
-    # "DEFAULT_SCHEMA_CSLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CSLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 ##
@@ -163,8 +164,15 @@ SIMPLE_JWT = {
 }
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # 프론트엔드 도메인 예시
+    'http://127.0.0.1:5500',  # 로컬 개발 서버 도메인 예시
+]
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
+
+CORS_ALLOW_CREDENTIALS = True
 
 # 사용자 정의 CustomUser 선언
 AUTH_USER_MODEL = 'accounts.CustomUser'
