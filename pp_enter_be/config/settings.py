@@ -165,6 +165,7 @@ SIMPLE_JWT = {
 
 
 CORS_ALLOWED_ORIGINS = True
+
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
