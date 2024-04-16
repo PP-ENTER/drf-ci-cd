@@ -34,8 +34,6 @@ jobs:
             whoami
             set -e
             cd /home/ubuntu/app/drf-ci-cd
-            git add .
-            git commit -m "dude king"
             git pull --rebase origin main
             
             cd /home/ubuntu/app/drf-ci-cd/pp_enter_be
