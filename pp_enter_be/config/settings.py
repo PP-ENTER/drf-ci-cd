@@ -190,6 +190,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+SECURE_SSL_REDIRECT = False
+
 # 사용자 정의 CustomUser 선언
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
